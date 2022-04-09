@@ -2,7 +2,6 @@ from random import randrange
 
 # graph generator from 2nd semester
 # todo: create more advanced graph generator
-# todo: put it on heroku(?)
 def generate_graph(number_of_vertices, saturation):
     max_number_of_edges = number_of_vertices * (number_of_vertices - 1) / 2
     number_of_required_edges = max_number_of_edges * saturation
