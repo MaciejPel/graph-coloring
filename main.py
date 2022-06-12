@@ -14,7 +14,7 @@ from multiprocessing	import Process
 
 path = path.dirname(path.realpath(__file__)) + "\\tests\\"
 test_files = [f for f in listdir(path) if isfile(join(path, f))]
-required_tests = ['queen6.txt', 'miles250.txt', 'gc500.txt', 'gc1000.txt', 'le450.txt']
+required_tests = ['queen6.txt', 'miles250.txt', 'gc500.txt', 'gc1000.txt', 'le450_5a.txt']
 required_tests = ['queen6.txt']
 
 if __name__ == "__main__":
@@ -22,10 +22,10 @@ if __name__ == "__main__":
 		matrix = read_graph(path + test)
 		greedy_result = greedy_coloring(matrix[0])
 		tabu_result = tabu_search(matrix[1], greedy_result[0], greedy_result[1])
-		print(test, greedy_result[1], tabu_result[1])
 
 		# tabu_result = Process(target = tabu_search, args = (matrix[1], greedy_result[0], greedy_result[1]))
 		# tabu_result.start()
 		# sleep(5 * 60)
 		# tabu_result.terminate()
 		# tabu_result.join()
+		print(test, greedy_result[1], tabu_result[1])

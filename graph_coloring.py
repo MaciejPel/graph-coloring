@@ -33,7 +33,7 @@ def count_confilicts(adjacency_dict, current_coloring, exclude_in_return = -1):
 					result[vertex] = [edge]
 	return dict(result), conflicts
 
-def tabu_coloring(adjacency_list, number_of_colors, previous_solution, is_first_solution, tabu_size=7, reps=20, max_iterations=10000):
+def tabu_coloring(adjacency_list, number_of_colors, previous_solution, is_first_solution, tabu_size = 7, reps = 80, max_iterations = 10000):
 	colors = list(range(number_of_colors))
 	iterations = 0
 	tabu_list = deque()
@@ -97,10 +97,10 @@ def tabu_coloring(adjacency_list, number_of_colors, previous_solution, is_first_
 		iterations += 1
 
 	if conflict_count != 0:
-		# print("No coloring found with {} colors.".format(number_of_colors))
+		print("No coloring found with {} colors.".format(number_of_colors))
 		return False, previous_solution
 	else:
-		# print("Found coloring:", len(set(solution.values())), solution)
+		print("Found coloring:", len(set(solution.values())))
 		return True, solution
 
 def tabu_search(adjacency_list, greedy_result_dict, greedy_result_number):
