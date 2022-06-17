@@ -2,7 +2,6 @@ from collections	import defaultdict, deque
 from copy 			import deepcopy
 from os				import system
 from random         import randrange
-from turtle import color
 
 # PS clear output
 def console_clear():
@@ -33,7 +32,7 @@ def count_confilicts(adjacency_dict, current_coloring, exclude_in_return = -1):
 					result[vertex] = [edge]
 	return dict(result), conflicts
 
-def tabu_coloring(adjacency_list, number_of_colors, previous_solution, is_first_solution, tabu_size = 7, reps = 80, max_iterations = 10000):
+def tabu_coloring(adjacency_list, number_of_colors, previous_solution, is_first_solution, tabu_size = 7, reps = 40, max_iterations = 10000):
 	colors = list(range(number_of_colors))
 	iterations = 0
 	tabu_list = deque()
