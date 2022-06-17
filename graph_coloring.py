@@ -19,19 +19,6 @@ def greedy_coloring(matrix):
 		result[vertex] = temp[0]
 	return result, len(set(result.values()))
 
-def count_confilicts(adjacency_dict, current_coloring, exclude_in_return = -1):
-	result = defaultdict(list)
-	conflicts = 0
-	for vertex, edges in adjacency_dict.items():
-		for edge in edges:
-			if current_coloring[vertex] == current_coloring[edge] and edge not in result and vertex != exclude_in_return:
-				conflicts += 1
-				if vertex in result:
-					result[vertex].append(edge)
-				else:
-					result[vertex] = [edge]
-	return dict(result), conflicts
-
 def tabu_coloring(adjacency_list, number_of_colors, previous_solution, is_first_solution, tabu_size = 7, reps = 40, max_iterations = 10000):
 	colors = list(range(number_of_colors))
 	iterations = 0
